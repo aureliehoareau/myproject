@@ -1,0 +1,76 @@
+<!-- Carousel
+================================================== -->
+  <div id="myCarousel" class="carousel slide">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+<div class="carousel-inner">
+
+    <div class="item active">
+      <img src="{{ asset('img/image1.png') }}" class="img-responsive" >
+      <div class="col-xs-6 text-left">
+          <div class="thumbnail-carousel1-left img-responsive">
+            <img src="{{ asset('img/excel-logo.png') }} " >
+          </div>
+      </div>
+      <div class="col-xs-6 text-right">
+          <div class="thumbnail-carousel1-right img-responsive">
+            <img src="{{ asset('img/powerbi-logo.jpg') }}">
+          </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="{{ asset('img/image1.png') }}" class="img-responsive">
+          <div class="col-xs-4 text-left">
+            <div class="thumbnail-carousel2-left img-responsive">
+              <img src="{{ asset('img/video-icon.png') }} " >
+            </div>
+            <p class="text-left2-icon"> {{'carousel.free.tutorial'|trans }} </p>
+          </div>
+          <div class="col-xs-4 text-center">
+            <div class="thumbnail-carousel2-center img-responsive">
+              <img src="{{ asset('img/book-icon.png') }} " >
+            </div>
+            <p class="text-center2-icon"> {{'carousel.free.ebook'|trans }}</p> 
+          </div>
+          <div class="col-xs-4 text-right">
+            <div class="thumbnail-carousel2-right img-responsive">
+              <img src="{{ asset('img/money-icon.png') }} " >
+            </div>
+            <p class="text-right2-icon">{{'carousel.reduction'|trans }} </p>
+          </div>
+    </div>
+
+    <div class="item">
+      <img src="{{ asset('img/image1.png') }}"  class="img-responsive">
+          <div class="col-xs-6 text-right">
+              <div class="thumbnail-carousel3-right img-responsive">
+              <img src="{{ asset('img/tips-icon.png') }} " >
+              </div>
+              <p class="text-right3-icon"> {{'carousel.tips'|trans }} 
+              </p>
+          </div>
+          <div class="col-xs-6 text-left">
+              <div class="thumbnail-carousel3-left img-responsive">
+                <img src="{{ asset('img/feedback-icon.png') }}">
+              </div>
+              <p class="text-left3-icon"> {{'carousel.improvment'|trans }} </p>
+          </div>
+    </div>
+</div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="icon-prev"></span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="icon-next"></span>
+  </a>  
+  
+</div>
+<!-- /.carousel -->

@@ -1,0 +1,188 @@
+{% extends "SiteBlogBundle::layout.html.twig" %}
+
+{% block title %}
+{{'blog.home.head'|trans }} | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+<header>
+    <div class="header-content">
+        <div class="header-content-inner text-center">
+        {% for presentation in listPresentation %}
+            <h1 id="homeHeading">{{ presentation.head}}</h1>
+        {% endfor %}
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                {% for index in listIndexProduct %}
+                    <p><h2>{{ index.title }}</h2></p>
+                    <hr class="blue">
+                    <h3> {{ index.subtitle }} </h3>
+                    <p> {{ index.description | bbcode_filter('default') }}</p>
+                    <a href="{{ path('ecommerce_menu',{'page':1}) }}" class="btn btn-primary btn-xl page-scroll">{{'site.start'|trans }}</a>
+                {% endfor %}
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                {% for index in listIndexService %}
+                    <p><h2>{{ index.title }}</h2></p>
+                    <hr class ="yellow">
+                    <h3> {{ index.subtitle }} </h3>
+                    <p> {{ index.description | bbcode_filter('default')  }}</p>
+                    <a href="{{ path('ecommerce_service_menu',{'page':1}) }}"class="btn btn-warning btn-xl page-scroll">{{'site.more'|trans}}</a>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{% for presentation in listPresentation %}
+    <section class="bg-primary" id="about">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h2 class="section-heading">{{ presentation.title}}</h2>
+                    <hr class="light">
+                </div>
+            </div> 
+       
+            <p>
+            <div class="row">
+                <div class="col-xs-6 text-center">
+                {% if presentation.image is not null %}
+                    <img src="{{ asset(presentation.image.webPath) }}"
+                        alt="{{ presentation.image.alt }}" class="img-thumbnail"/>
+                {% endif %}
+                </div>
+                <div class="col-xs-6 text-center">
+                {% if presentation.image2 is not null %}
+                    <img src="{{ asset(presentation.image2.webPath) }}"
+                        alt="{{ presentation.image2.alt }}" class="img-thumbnail"/>
+                {% endif %}
+                </div>
+            </div>
+            </p>
+        
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <hr class="light">
+                    <p class="text-faded">{{ presentation.description }}</p>
+                    <p><h2 class="section-heading">{{ presentation.title2 }}</h2></p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endfor %}
+
+{% for index in listMarketingProduct %}
+    <section id="s">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">{{ index.title }}</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="-box">
+                        <h4>{{ index.subtitle}}</h4>
+                        <br>
+                        <p class="text-muted">
+                        {{ index.description| bbcode_filter('default') }} </p>
+                        <br>
+                        <div class= "text-center">
+                        <a href="{{ path('ecommerce_menu',{'page':1}) }}" class="btn btn-primary btn-xl page-scroll">{{'site.start'|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+</br>
+                <div class="col-lg-6 col-md-6 text-center">
+                    <div class="-box">
+                    {% if index.image is not null %}
+                    <img class="img-responsive"
+                        src="{{ asset(index.image.webPath) }}"
+                        alt="{{ index.image.alt }}" />
+                    {% endif %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endfor %}
+
+<hr class="style1">
+
+{% for index in listMarketingService %}
+    <section id="s">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">              
+                    <h2 class="section-heading">{{ index.title }}</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="-box">
+                        <h4{{ index.subtitle }}</h4>
+                        <br>
+                        <p class="text-muted">
+                        {{ index.description | bbcode_filter('default') }}</p>
+                        <br>
+                        <div class="text-center">
+                        <a href="{{ path('ecommerce_service_menu',{'page':1}) }}" class="btn btn-warning btn-xl page-scroll">{{'site.more'|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+</br>
+                <div class="col-lg-6 col-md-6 text-center">
+                    <div class="-box">
+                        {% if index.image is not null %}
+                    <img class="img-responsive"
+                        src="{{ asset(index.image.webPath) }}"
+                        alt="{{ index.image.alt }}"/>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+{% endfor %}
+
+<hr class="featurette-divider">
+    {{ render(controller("SiteMediaBundle:Social:menu") ) }}
+{% if feedback is not null %}  
+    <hr class="style1">
+    <section id="contact">
+        <div class="container">
+            
+                {{ render(controller("SiteBlogBundle:Feedback:menu") ) }}
+        </div>
+    </section>
+{% endif %} 
+
+<section id="contact" class="container-newsletter">
+    <div class="container">
+        <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            {{ render(controller("SiteMediaBundle:Media:newsletter")) }}
+        </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

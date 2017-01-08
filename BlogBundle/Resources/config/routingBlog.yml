@@ -1,0 +1,8 @@
+blog_menu:
+    path:     /menu
+    defaults:
+        _controller: SiteBlogBundle:Blog:menu
+blog_show:
+    path:     /{slug}
+    defaults:
+        _controller: SiteBlogBundle:Blog:show

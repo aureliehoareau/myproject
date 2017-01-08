@@ -1,0 +1,24 @@
+{% extends "SiteBlogBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+{{'blog.edit.head'|trans }} : {{ article.title }} | {{ parent() }}
+{% endblock %}
+
+{% block site_body %}
+
+  <h2> {{'blog.edit.title'|trans }} : {{ article.title }}</h2>
+
+  <p>
+    {{'blog.edit.confirmation'|trans }}.
+  </p>
+
+  {{ form(form) }}
+
+  <p>
+    <a href="{{ path('admin_blog_view', {'slug': article.slug}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      {{'blog.back'|trans }}
+    </a>
+  </p>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "SiteBlogBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+{{'blog.view.head'|trans }}: {{article.title}} | {{ parent() }}
+{% endblock %}
+
+{% block site_body %}
+
+  <h1>{{ article.title }}</h1>
+
+  <div style="float: left; margin-right: 1em;">
+    {# On vérifie qu'une image soit bien associée à l'article #}
+    {% if article.image is not null %}
+      <img
+        src="{{ asset(article.image.webPath) }}"
+        alt="{{ article.image.alt }}"
+        height="60"
+      />
+    {% endif %}
+  </div>
+
+  <i>Par {{ article.user }}, le {{ article.date|date('d/m/Y') }}</i>
+
+  <div class="well">
+    {{ article.content| bbcode_filter('default') }}
+  </div>
+
+  <p>
+    <a href="{{ path('admin_blog_list') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      {{'blog.back'|trans }}
+    </a>
+    <a href="{{ path('admin_blog_edit', {'slug': article.slug}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      {{'blog.edit'|trans }}
+    </a>
+    <a href="{{ path('admin_blog_delete', {'slug': article.slug}) }}" class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+      {{'blog.delete'|trans }}
+    </a>
+  </p>
+
+
+{% endblock %}

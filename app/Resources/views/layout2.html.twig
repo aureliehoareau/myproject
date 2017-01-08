@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% block title %}Partie USER{% endblock %}</title>
+
+  {% block stylesheets %}
+    {# On charge le CSS de bootstrap depuis le site directement #}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+   <link href="{{ asset('css/layoutUser.css') }}" type="text/css" rel="stylesheet" />
+  {% endblock %}
+
+ {% stylesheets filter='cssrewrite, ?scssphp'
+ 'bundles/site/css/*'
+ %}
+  <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+
+</head>
+
+<body>
+
+  <div class="navbar-wrapper">
+    <div class="container">
+      {% include '::ModulesUsed/base.html.twig' %} 
+  </div><!-- /container -->
+</div><!-- /navbar wrapper -->
+
+<!-- Les différentes parties
+================================================== -->
+<!-- START THE FEATURETTES -->
+    {% block body %}
+     <!-- Description via page home bundle blog -->
+     <hr class="featurette-divider">
+    {% endblock %}
+  
+  <!-- FOOTER -->
+  <footer>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+    <p> Copyright all rights reserved UboarNPlan </p>
+  </footer>
+
+</div><!-- /.container -->
+  
+
+  {% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  {% endblock %}
+
+</body>
+</html>

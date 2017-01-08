@@ -1,0 +1,28 @@
+{% extends "::layoutError.html.twig" %}
+
+{% block title %}
+{{ status_code }} {{ status_text }} - {{ parent() }}
+{% endblock %}
+
+{% block body -%}
+<div class="container marketing"> <!-- / pour centrer -->
+<section id="contact" class="container-contact">
+        <div class="container">
+            <div class="row">
+                
+            </div>
+        </div>
+        
+</section>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 ">
+        <h2 class="section-heading">An Error Occurred: {{ status_text }}</h2>
+        <h2> "{{ status_code }} {{ status_text }}"</h2>
+        <p>Oops ! La page que vous tentez d'afficher n'existe pas</p>
+ 
+		<p><a href ="{{ path('blog_homepage') }}"> Retour à l'accueil</a><p>
+       </div>
+     </div>
+{% endblock %}

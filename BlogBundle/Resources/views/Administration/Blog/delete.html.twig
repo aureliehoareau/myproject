@@ -1,0 +1,27 @@
+{% extends "SiteBlogBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+{{'blog.delete.head'|trans }}: {{ article.title }} | {{ parent() }}
+{% endblock %}
+
+{% block site_body %}
+
+  <h2>{{'blog.delete.title'|trans }} : {{ article.title}} </h2>
+
+  <p>
+    {{'blog.delete.confirmation'|trans }} "{{ article.title }}" ?
+  </p>
+
+  {# On met l'id de l'annonce dans la route de l'action du formulaire #}
+  <form action="{{ path('admin_blog_delete', {'slug': article.slug}) }}" method="post">
+    <a href="{{ path('admin_blog_list')}}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      {{'blog.back'|trans }}
+    </a>
+    {# Ici j'ai écrit le bouton de soumission à la main #}
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {# Ceci va générer le champ CSRF #}
+    {{ form_rest(form) }}
+  </form>
+
+{% endblock %}

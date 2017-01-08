@@ -1,0 +1,14 @@
+{% extends "SiteEcommerceBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+{{'feedback.addFeedback.head'|trans }} | {{ parent() }}
+{% endblock %}
+
+{% block site_body %}
+
+  <h2>{{'feedback.addFeedback.title'|trans }}</h2>
+
+<div class="well">
+  {{ form(form) }}
+</div>
+{% endblock %}

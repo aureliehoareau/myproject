@@ -1,0 +1,24 @@
+{% extends "SiteEcommerceBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+{{'feedback.delete.head'|trans }} | {{ parent() }}
+{% endblock %}
+
+{% block site_body %}
+
+  <p>
+    {{'feedback.delete.confirmation'|trans }} "{{ feedback.name }}" ?
+  </p>
+
+  {# On met l'id de l'annonce dans la route de l'action du formulaire #}
+  <form action="{{ path('admin_feedback_delete', {'id': feedback.id}) }}" method="post">
+    <a href="{{ path('admin_feedback_view', {'id': feedback.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      {{'feedback.back'|trans }}
+    </a>
+    {# Ici j'ai écrit le bouton de soumission à la main #}
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {# Ceci va générer le champ CSRF #}
+    {{ form_rest(form) }}
+  </form>
+{% endblock %}

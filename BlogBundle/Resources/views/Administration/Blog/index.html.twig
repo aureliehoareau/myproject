@@ -1,0 +1,72 @@
+{% extends "SiteBlogBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+{{'blog.index.head'|trans }} | {{ parent() }}
+{% endblock %}
+
+{% block site_body %}
+<h1>{{'blog.dashboard'|trans }}</h1>
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+
+<p><h3>{{'blog.last.article'|trans }}</h3></p>
+<hr>
+{% for article in listArticles %}
+	{{ article.date|date('d/m/Y') }} : {{ article.description.title }} by {{ article.user.username }} 
+{% endfor %}
+
+
+<p><h3>{{'blog.last.service'|trans }}</h3></p>
+<hr>
+{% for service in listServices %}
+	{{ service.date|date('d/m/Y') }}  :{{ service.title }} by  {{ service.trainer.name}} 
+	</br>
+{% endfor %}
+
+
+<p><h3>{{'blog.last.product'|trans }}</h3></p>
+<hr>
+{% for product in listProducts %}
+ 	{{ product.date|date('d/m/Y') }} : {{ product.title }} by {{ product.user.username }}
+ 	</br>
+{% endfor %}
+</div>
+<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+
+<p><h3>{{'blog.option'|trans }}</h3></p>
+<hr>
+ <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">
+ <p> {{'category'|trans }}</p> 
+ </button>
+ <div id="demo" class="collapse off"> 
+ 	<form method="post" action="{{ path('admin_category_add') }}">{{ form_widget(form) }}</form>
+ </div>
+ </br>
+<a href="{{ path('admin_category_list') }}">{{'category.add'|trans }}</a>
+ 
+
+<hr>
+ <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demolevel">
+ <p>{{'blog.add'|trans }} </p> 
+ </button>
+ <div id="demolevel" class="collapse off"> 
+ 	<form method="post" action="{{ path('admin_level_add') }}">{{ form_widget(formLevel) }}</form>
+ </div>
+ </br>
+<a href="{{ path('admin_level_list') }}">{{'blog.level'|trans }}</a>
+
+<hr>
+ <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#langue">
+ <p>{{'blog.language'|trans }}</p> 
+ </button>
+ <div id="langue" class="collapse off"> 
+ 	<form method="post" action="{{ path('admin_language_add') }}">{{ form_widget(formLanguage) }}</form>
+ </div>
+</br>
+<a href="{{ path('admin_language_list') }}">{{'blog.language'|trans }}</a>
+</div>
+</div>
+ 
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+{{'modulesused.newsletter.head'|trans }} | {{ parent() }}
+{% endblock %}
+
+
+{% block body %}
+
+ {% include "SiteMediaBundle:Media:formNewsletter.html.twig" %}
+
+
+{% endblock %}

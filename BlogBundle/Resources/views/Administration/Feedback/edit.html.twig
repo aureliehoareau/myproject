@@ -1,0 +1,21 @@
+{% extends "SiteBlogBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+{{'feedback.edit.head'|trans }} | {{ parent() }}
+{% endblock %}
+
+{% block site_body %}
+
+  <h2>{{'feedback.edit.title'|trans }}</h2>
+
+  {{ form(form) }}
+
+
+  <p>
+    <a href="{{ path('admin_feedback_view', {'id': feedback.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      {{'feedback.back'|trans }}
+    </a>
+  </p>
+
+{% endblock %}

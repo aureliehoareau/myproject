@@ -1,0 +1,27 @@
+admin:
+    resource: "@SiteBlogBundle/Resources/config/routingBlogAdmin.yml"
+    prefix:   /blog/admin
+
+blog:
+    resource: "@SiteBlogBundle/Resources/config/routingBlog.yml"
+    prefix:   /blog
+
+admin_feedback:
+    resource: "@SiteBlogBundle/Resources/config/routingFeedbackAdmin.yml"
+    prefix:   /feedback/admin
+
+feedback:
+    resource: "@SiteBlogBundle/Resources/config/routingFeedback.yml"
+    prefix:   /feedback
+
+blog_homepage:
+    path:     /
+    defaults:
+        _controller: SiteBlogBundle:Blog:home
+
+admin_blog_index:
+    path:   /admin
+    defaults: 
+        _controller: SiteBlogBundle:BlogAdmin:index
+    requirements:
+        id: \d+

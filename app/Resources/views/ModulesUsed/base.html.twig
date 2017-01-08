@@ -1,0 +1,42 @@
+<!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+      </button>
+      <a class="navbar-brand " href="{{ path('blog_homepage') }}">BoardNPlan</a>
+      
+  </div>
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+    <ul class="nav navbar-nav navbar-right">     
+        <li>
+          <a class="page-scroll" href="{{ path('ecommerce_menu',{'page':1}) }}">{{'products'|trans }}</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="{{ path('ecommerce_service_menu',{'page':1}) }}">{{'service'|trans }}</a>
+        </li>
+       
+        <li>
+          <a class="page-scroll" href="{{ path('ecommerce_consulting_show') }}">{{'consulting'|trans }}</a>
+        </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-left"> 
+      {% if is_granted('ROLE_SUPER_ADMIN') %}
+        <li> 
+          <a href="{{ path('admin_blog_index') }}">{{'back'|trans }}</a> 
+        </li>
+      {% endif %}
+    </ul>
+
+    <p class="navbar-text pull-left"><!-- /Barre de navigation DROITE -->
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <a href="{{ path('fos_user_security_logout') }}">{{'logout'|trans }}</a>
+      {% else %}
+        <a href="{{ path('fos_user_security_login') }}"> {{'login'|trans }} </a> 
+      {% endif %}
+    </p>
+ 
+ </div>

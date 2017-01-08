@@ -1,0 +1,15 @@
+{% extends "SiteBlogBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+{{'blog.add.head'|trans }} | {{ parent() }}
+{% endblock %}
+
+{% block site_body %}
+
+  <h2> {{'blog.add.title'|trans }} </h2>
+
+	<div class="well">
+	  {{ form(form) }}
+	</div>
+
+{% endblock %}

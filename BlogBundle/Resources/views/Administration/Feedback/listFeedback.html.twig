@@ -1,0 +1,66 @@
+{% extends "SiteEcommerceBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+{{'feedback.list.head'|trans }} | {{ parent() }}
+{% endblock %}
+
+{% block site_body %}
+
+  <h1>{{'feedback.list.title'|trans }}</h1>
+<div class="table-responsive">
+<table class="table table-striped">
+
+      <thead>
+        <tr>
+          <th>{{'feedback.list.lastname'|trans }}</th>
+          <th>{{'feedback.list.name'|trans }}</th>
+          <th>{{'feedback.list.date'|trans }} </th>
+          <th>{{'feedback.list.comment'|trans }}</th>
+          <th>{{'feedback.list.statut'|trans }}</th>
+          <th>{{'feedback.list.action'|trans }}</th>
+        </tr>
+      </thead>
+  
+    {% for feedback in liste_feedback %}
+  
+  <tbody>
+    <td> 
+      {{ feedback.name}}
+    </td>
+    
+    <td> 
+      {{ feedback.lastname}} 
+    </td>
+    
+    <td> 
+      le {{ feedback.date|date('d/m/Y') }}
+    </td>
+     
+    <td> 
+      {{ feedback.comment }} 
+    </td>
+
+
+    <td> 
+      {% if feedback.published == 1 %}
+        <p class="text-success"> En ligne </p>
+      {% else %} 
+        <p class="text-error"> Hors ligne </p>
+      {% endif %}
+    </td>
+
+    <td>
+      <a href="{{ path('admin_feedback_view', {'id': feedback.id}) }}">{{'feedback.view'|trans }}</a> 
+      <a href="{{ path('admin_feedback_edit', {'id': feedback.id}) }}">{{'feedback.edit'|trans }}</a> 
+      <a href="{{ path('admin_feedback_delete', {'id': feedback.id}) }}">{{'feedback.delete'|trans }}</a> 
+    </td>
+  </tbody>
+  
+  {% else %}
+    <li>{{'feedback.no.comment'|trans }}</li>
+  {% endfor %}
+   
+  </table>
+ </div> 
+  
+{% endblock %}    

@@ -1,0 +1,78 @@
+blog.add.head: Add
+blog.add.title: 'Add an article'
+blog.delete.head: Delete
+blog.delete.title: 'Delete an article'
+blog.delete.confirmation: 'Are you sure, you want to delete this article ?'
+blog.back: Back
+blog.edit.head: Edit
+blog.edit.title: 'Edit an article'
+blog.edit.confirmation: 'Are you sure, you want to edit this article ?'
+blog.form.title: Form
+blog.index.head: Dashboard
+blog.dashboard: Dashboard
+blog.last.article: 'Last Articles'
+blog.last.service: 'Last Services'
+blog.last.product: 'Last Products'
+blog.option: Options
+category: Category
+category.add: Category
+blog.add: Add
+blog.level: Level
+blog.language: Language
+blog.list.head: List
+blog.list.title: 'Add a list'
+blog.list.subtitle: Title
+blog.list.author: Author
+blog.list.date: Date
+blog.list.statut: Statut
+blog.list.action: Actions
+blog.view: View
+blog.edit: Edit
+blog.delete: Delete
+blog.no.comment: 'No article for the moment'
+blog.view.head: View
+feedback.add.head: Feedback
+feedback.add.title: 'Add a feedback'
+feedback.delete.head: Delete
+feedback.delete.confirmation: 'Are you sure you want to delete this feedback'
+feedback.back: Back
+feedback.edit.head: Edit
+feedback.edit.title: 'Edit this feeback'
+feedback.edit.form: Form
+feedback.index.head: Feedbacks
+feedback.list.head: Feedback
+feedback.list.title: 'Add a feedback'
+feedback.list.lastname: Lastname
+feedback.list.name: Name
+feedback.list.date: Date
+feedback.list.comment: Comment
+feedback.list.statut: Statut
+feedback.list.action: Actions
+feedback.view: View
+feedback.edit: Edit
+feedback.delete: Delete
+feedback.no.comment: 'No feedback for the moment'
+feedback.view.head: View
+blog.home.head: Home
+site.start: 'Get Started'
+site.more: 'See More'
+blog.legal.head: 'Legal informations'
+blog.legal.title: 'Legal informations'
+feedback.add.give.us.feed: 'Give us feedback'
+feedback.addFeedback.head: Form
+feedback.addFeedback.title: 'Add a feedback'
+feedback.form.title: Form
+feedback.menu.title: Feedbacks
+homepage.design : Homepage Design
+dashboard : Dashboard
+service : Service
+product : Product
+consulting : Consulting
+trainer : Trainer
+company : Company
+feedback : Feedback
+admin : Admin
+visitor.version : Visitor version
+home : Home
+logout : Logout
+

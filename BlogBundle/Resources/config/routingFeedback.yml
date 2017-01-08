@@ -1,0 +1,10 @@
+feedback_menu:
+    path:     /list/page/{page}
+    defaults:
+        _controller: SiteBlogBundle:Feedback:menu
+
+feedback_add:
+    path:    /add
+    defaults: 
+        _controller: SiteBlogBundle:Feedback:add
+

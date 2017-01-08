@@ -1,0 +1,21 @@
+{% extends "SiteBlogBundle::layout.html.twig" %}
+
+{% block title %}
+{{ 'blog.show.title' }} | {{ parent() }}
+{% endblock %}
+
+{% block site_body %}
+
+
+<div class="container marketing"> <!-- / pour centrer -->
+  <!-- Page Content -->
+
+  <h1>{{ article.title }}</h1>
+  </br>
+
+  <div class="well">
+    {{ article.content| bbcode_filter('default') }}
+  </div>
+
+
+{% endblock %}

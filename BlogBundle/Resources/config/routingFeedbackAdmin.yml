@@ -1,0 +1,27 @@
+admin_feedback_add:
+    path:    /add
+    defaults: 
+        _controller: SiteBlogBundle:FeedbackAdmin:add 
+
+admin_feedback_list:
+    path:    /list
+    defaults: 
+        _controller: SiteBlogBundle:FeedbackAdmin:listFeedback
+
+admin_feedback_edit:
+    path:    /edit/{id}
+    defaults: 
+        _controller: SiteBlogBundle:FeedbackAdmin:edit 
+    requirements:
+        id: \d+
+
+admin_feedback_delete:
+    path:   /delete/{id}
+    defaults: 
+        _controller: SiteBlogBundle:FeedbackAdmin:delete 
+    requirements:
+        id: \d+
+admin_feedback_view:
+    path:     /{id}
+    defaults:
+        _controller: SiteBlogBundle:FeedbackAdmin:view 

@@ -1,0 +1,32 @@
+{% extends "SiteEcommerceBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+{{'feedback.view.head'|trans }} | {{ parent() }}
+{% endblock %}
+
+{% block site_body %}
+
+ 
+  <i>Par {{ feedback.name }} - {{ feedback.lastname}}, le {{ feedback.date|date('d/m/Y') }}</i>
+
+  <div class="well">
+    {{ feedback.comment }}
+  </div>
+
+   <p>
+    <a href="{{ path('admin_feedback_list') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      {{'feedback.back'|trans }}
+    </a>
+    <a href="{{ path('admin_feedback_edit', {'id': feedback.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      {{'feedback.edit'|trans }}
+    </a>
+    <a href="{{ path('admin_feedback_delete', {'id': feedback.id}) }}" class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+      {{'feedback.delete'|trans }}
+    </a>
+  </p>
+
+
+{% endblock %}
